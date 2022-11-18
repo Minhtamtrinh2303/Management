@@ -63,13 +63,15 @@ public class DeleteProduct {
     }
 
     private static void deleteByName() {
+        String name = " "; // lưu lại tên cần xóa
         System.out.println("Enter product's name: ");
-        String name = new Scanner(System.in).nextLine();
-        System.out.println("The remaining product(s) in the list: ");
+        name = new Scanner(System.in).nextLine();
         for (Product product : Main.products) {
             if ( product.getName().equals(name) ) {
-                Main.products.remove(name);
+                Main.products.remove(product);
             }
         }
+        ViewProduct.view(); // xem danh sách sản phẩm sau khi xóa
     }
+
 }
