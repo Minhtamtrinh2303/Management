@@ -45,7 +45,6 @@ public class DeleteProduct {
     private static void deleteById() {
         System.out.println("Enter product's id: ");
         int id = new Scanner(System.in).nextInt();
-        System.out.println("The remaining product(s) in the list: ");
         boolean delete = false;
         int d = -1; //lưu lại id cần xóa
         for (int i = 0; i < Main.products.size(); i++) {
@@ -55,11 +54,12 @@ public class DeleteProduct {
                 break;
             }
         }
-        if ( delete ) {
+        if ( delete == false ) {
             System.out.println("This is not the ID to delete! ");
         } else {
             Main.products.remove(d);
         }
+        ViewProduct.view(); // xem danh sách sản phẩm sau khi xóa
     }
 
     private static void deleteByName() {
